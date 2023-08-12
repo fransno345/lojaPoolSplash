@@ -1,10 +1,15 @@
 <div class="container">
-    <h2>Detalhes do Produto {{ titulo }}</h2>
-    <section class="product-details">
-        <img [src]="foto" alt="Foto de {{ titulo }}" />
+    <h2> titulo </h2>
+    <img src="../../assets.piscinaredonda.png/" alt="">
+     <section class="product-details">
+        <img [src]="this.piscina.foto" alt="Foto de titulo" />
         <div class="product-description">
-            <p>{{ description }}</p>
-            <p>{{ description2 }}</p>
+            <p>titulo :{{this.piscina.titulo}}
+                <p>formarto :{{this.piscina.formato}}
+                    <p>metragem :{{this.piscina.metragem}}
+                        <p>preco :{{this.piscina.preco}}
+            </p>
+            <p>description2 </p>
         </div>
     </section>
 </div>

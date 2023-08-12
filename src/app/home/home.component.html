@@ -1,65 +1,63 @@
-<div class="container">
-    <h1> Olá {{ nome + " " + sobrenome }}!</h1>
-    <section id="piscinas-favoritas">
-        <h2>Confira aqui as suas piscinas favorita:</h2>
-        <mat-grid-list cols="3" rowHeight="3:4">
-            <div *ngFor="let piscinas of piscinas; let i = index">
-                <mat-grid-tile *ngIf="piscinas.favorito">
-                    <mat-card>
-                        <img mat-card-image [src]="piscinas.foto" [alt]="piscinas.titulo" />
-                        <mat-card-content>
-                            <h3>{{ piscinas.titulo }}</h3>
-                            <ul>
-                                <li>Piscinas: {{ piscinas.titulo }}</li>
-                                <li>formato:{{ piscinas.formato}}</li>
-                                <li>metragem:{{ piscinas.metragem}}</li>
-                                <li>preco:{{ piscinas.preco}}</li>
-                            </ul>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button
-                                [class]="piscinas.favorito === false ? 'favorite' : 'favorite-checked'"
-                                [title]="piscinas.favorito === false ? 'Adicionar aos favoritos' : 'Remover dos favoritos'"
-                                mat-button
-                                (click)="toogleFavorito(i)">
-                            <mat-icon aria-hidden="false" aria-label="Favoritos" fontIcon="favorite"></mat-icon>
-                        </button> 
-                            <button mat-button (click)="verDetalhes(piscinas.id)">Mais detalhes</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </mat-grid-tile>
-            </div>
-        </mat-grid-list>
-    </section>
-    <section id="lista-piscinas">
-        <h2>Todas as piscinas:</h2>
-        <mat-grid-list cols="3" rowHeight="3:4">
-            <div *ngFor="let piscinas of piscinas; let i = index">
-                <mat-grid-tile>
-                    <mat-card>
-                        <img mat-card-image [src]="piscinas.foto" [alt]="piscinas.titulo" />
-                        <mat-card-content>
-                            <h3>{{ piscinas.titulo }}</h3>
-                            <ul>
-                                <li>Piscinas: {{ piscinas.titulo }}</li>
-                                <li>formato:{{ piscinas.formato}}</li>
-                                <li>metragem:{{ piscinas.metragem}}</li>
-                                <li>preco:{{ piscinas.preco}}</li>
-                            </ul>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button
-                                [class]="piscinas.favorito === false ? 'favorite' : 'favorite-checked'"
-                                [title]="piscinas.favorito === false ? 'Adicionar aos favoritos' : 'Remover dos favoritos'"
-                                mat-button
-                                (click)="toogleFavorito(i)">
-                            <mat-icon aria-hidden="false" aria-label="Favoritos" fontIcon="favorite"></mat-icon>
-                        </button> 
-                            <button mat-button (click)="verDetalhes(piscinas.id)">Mais detalhes</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </mat-grid-tile>
-            </div>
-        </mat-grid-list>
-    </section>
+<div id="tela">
+    <div class="container">
+        <h1> Olá {{ nome + " " + sobrenome }}!</h1>
+        <section id="piscinas-favoritas">
+            <h2>Confira aqui as suas piscinas favorita:</h2>
+            <mat-grid-list cols="3" rowHeight="3:4">
+                <div *ngFor="let piscinas of piscinas; let i = index">
+                    <mat-grid-tile *ngIf="piscinas.favorito">
+                        <mat-card>
+                            <img mat-card-image [src]="piscinas.foto" [alt]="piscinas.titulo" />
+                            <mat-card-content>
+                                <h3>{{ piscinas.titulo }}</h3>
+                                <ul class="father"> 
+                                    <li class="card">Piscinas: {{ piscinas.titulo }}</li>
+                                    <li class="card">formato:{{ piscinas.formato}}</li>
+                                    <li class="card">metragem:{{ piscinas.metragem}}</li>
+                                    <li>preco:{{ piscinas.preco}}</li>
+                                </ul>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button [class]="piscinas.favorito === false ? 'favorite' : 'favorite-checked'"
+                                    [title]="piscinas.favorito === false ? 'Adicionar aos favoritos' : 'Remover dos favoritos'"
+                                    mat-button (click)="toogleFavorito(i)">
+                                    <mat-icon aria-hidden="false" aria-label="star" fontIcon="star"></mat-icon>
+                                </button>
+                                <button mat-button (click)="verDetalhes(piscinas.id)">Mais detalhes</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+        </section>
+        <section id="lista-piscinas">
+            <h2>Todas as piscinas:</h2>
+            <mat-grid-list cols="3" rowHeight="3:4">
+                <div *ngFor="let piscinas of piscinas; let i = index">
+                    <mat-grid-tile>
+                        <mat-card>
+                            <img mat-card-image [src]="piscinas.foto" [alt]="piscinas.titulo" />
+                            <mat-card-content>
+                                <h3>{{ piscinas.titulo }}</h3>
+                                <ul>
+                                    <li>Piscinas: {{ piscinas.titulo }}</li>
+                                    <li>formato:{{ piscinas.formato}}</li>
+                                    <li>metragem:{{ piscinas.metragem}}</li>
+                                    <li>preco:{{ piscinas.preco}}</li>
+                                </ul>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button [class]="piscinas.favorito === false ? 'favorite' : 'favorite-checked'"
+                                    [title]="piscinas.favorito === false ? 'Adicionar aos favoritos' : 'Remover dos favoritos'"
+                                    mat-button (click)="toogleFavorito(i)">
+                                    <mat-icon aria-hidden="false" aria-label="Favoritos" fontIcon="favorite"></mat-icon>
+                                </button>
+                                <button mat-button (click)="verDetalhes(piscinas.id)">Mais detalhes</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+        </section>
+    </div>
 </div>

@@ -4,7 +4,7 @@
     width: 1140px;
     display: block;
     margin: auto;
-    min-height: calc(100vh - 224px); 
+    min-height: calc(100vh - 230px);; 
     h2 {
         padding: 40px 0px 30px 0px;
         font-family: $fonte-principal;
@@ -25,7 +25,17 @@
                 color: $cinza-medio;
                 font-size: $media;
                 line-height: $grande;
+                
+                background-color: aqua;
+
+    @media (max-width:600px) {
+        background-color: rgb(0, 255, 149);
+        
+
+    }
             }
         }
     }
 }
+
+

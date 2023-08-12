@@ -8,15 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetalhesComponent implements OnInit {
 
-  LojaPoolSplashId: string | undefined;
-
-  titulo: string = 'Piscina Carro Chefe da casa';
-  foto: string = 'https://i.ibb.co/JKzFtzj/piscinacarrochefe.jpg';
-
-  description: string = 'Bem-vindo a lojaPoolSplash essa é nossa piscina carro chefe da casa, com designer moderno, feita com a melhor fibra do mercado, trazendo conforto e alegria para seus momentos de lazer';
-  description2: string = 'Essa linda piscina ficaria muito bem, na sua casa de campo, casa de praia, pois uma casa sem piscina não tem graça não é mesmo?';
-  warnings: string = 'Nota: A disponibilidade e o preço estão sujeitos a alterações. Entre em contato conosco para mais informações e venha conhecer a nossa loja e tomar um café conosco será um prazer recebê-lo!';
-  LojalId: string | undefined;
+ 
+  LojalId: string ;
+  piscina: any;
+ 
 
 
   constructor(private router: ActivatedRoute) { }
@@ -25,8 +20,72 @@ export class DetalhesComponent implements OnInit {
     this.router.paramMap.subscribe(params => {
       this.LojalId = params.get('id') ?? '';
     });
-  }
+    this.piscina= this.piscinas [this.piscinas.findIndex ((piscina)=> {
+     return piscina.id === parseInt(this.LojalId)
+    })]
 
+  } 
 
+  piscinas: Array<any> = [
+    {
+      id: 1,
+      titulo: 'Piscina Dupla',
+      foto: '../assets/imagens/piscinadupla.jpg',
+      formato: 'arredondada',
+      metragem: '4 metros',
+      preco: 2300,
+      favorito: false
+    },
+    {
 
+      id: 2,
+      titulo: 'Piscina Redonda',
+      foto: '../assets/imagens/piscinaredonda.jpg',
+      formato: 'arredondada',
+      metragem: '3 metros',
+      preco: 2200,
+      favorito: false
+      
+    },
+
+    {
+      id: 3,
+      titulo: 'Piscina Arredondada',
+      foto: '../assets/imagens/piscinaarredondada.jpg',
+      formato: 'arredondada',
+      metragem: '9 metros',
+      preco: 5000,
+      favorito: true
+    },
+    {
+      id: 4,
+      titulo: 'Piscina Quadrada',
+      foto: '../assets/imagens/piscinaquadrada.jpg',
+      formato: 'quadrado',
+      metragem: '15 metros',
+      preco: 12000,
+      favorito: false
+    },
+    {
+      id: 5,
+      titulo: 'Piscina Carro Chefe',
+      foto: '../assets/imagens/piscinacarrochefe.jpg',
+      formato: 'ondulado',
+      metragem: '20 metros',
+      preco: 15000,
+      favorito: true
+    },
+    {
+      id: 6,
+      titulo: 'Piscina com degraus',
+      foto: '../assets/imagens/piscinacomdegraus.jpg',
+      formato: 'arredondada',
+      metragem: '17 metros',
+      preco: 12000,
+      favorito: true
+      
+      }
+
+  ];
 }
+
